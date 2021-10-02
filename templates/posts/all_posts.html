@@ -1,0 +1,21 @@
+{% extends 'posts/base.html' %}
+
+{% block title %}Blog | All Posts{% endblock %}
+
+{% block content %}
+<h1>All Posts</h1>
+<section>
+	{% for post in posts %}
+		<div class="post">
+			<h2 class="post_title">{{ post.title }}</h2>
+			<p class="post_short_description">{{ post.short_description }}</p>
+			<p class="post_meta">
+				<small><b>{{ post.author.username }}</b> | {{ post.pub_date }}</small>
+			</p>
+			<p class="post_more_link"><a href="{% url 'concrete_post' post.pk %}">Read more...</a></p>
+		</div>
+	{% empty %}
+		<p>There are no posts :(</p>
+	{% endfor %}
+</section>
+{% endblock %}

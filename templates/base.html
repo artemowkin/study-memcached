@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<nav class="header_navigation_buttons">
+				<a href="{% url 'all_posts' %}" class="header_navigation_button">Blog</a>
+				<a href="#" class="header_navigation_button">Contact</a>
+			</nav>
+			<form method="GET" action="#" class="header_search">
+				<input type="search" class="search_input" placeholder="Click to search">
+			</form>
+		</div>
+	</header>
+	<main>
+		{% block content %}	
+		{% endblock %}
+	</main>
+</body>
+</html>
